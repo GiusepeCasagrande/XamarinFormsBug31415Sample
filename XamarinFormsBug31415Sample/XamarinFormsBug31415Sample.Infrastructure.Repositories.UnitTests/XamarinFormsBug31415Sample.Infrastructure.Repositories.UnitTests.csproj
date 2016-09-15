@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{46446F9D-75CC-41E0-B96B-28B994EEF32E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>XamarinFormsBug31415Sample.Infrastructure.Repositories.UnitTests</RootNamespace>
+    <AssemblyName>XamarinFormsBug31415Sample.Infrastructure.Repositories.UnitTests</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="nunit.framework">
+      <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Skahal.Infrastructure.Framework.Domain">
+      <HintPath>..\packages\Skahal.Infrastructure.Framework.Domain.1.0.0\lib\Skahal.Infrastructure.Framework.Domain.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Rest\Mappers\RestSampleMapperTest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Rest\" />
+    <Folder Include="Rest\Mappers\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\XamarinFormsBug31415Sample.Infrastructure.Framework\XamarinFormsBug31415Sample.Infrastructure.Framework.csproj">
+      <Project>{B89B6D63-E6E3-4F7F-AAD2-F6458CE4D5A0}</Project>
+      <Name>XamarinFormsBug31415Sample.Infrastructure.Framework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XamarinFormsBug31415Sample.Infrastructure.Repositories\XamarinFormsBug31415Sample.Infrastructure.Repositories.csproj">
+      <Project>{30C3F8E4-702F-4BFE-A3A8-2967EA4AC421}</Project>
+      <Name>XamarinFormsBug31415Sample.Infrastructure.Repositories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XamarinFormsBug31415Sample.Domain\XamarinFormsBug31415Sample.Domain.csproj">
+      <Project>{F75F16B1-0163-4885-901E-8AD018AB3650}</Project>
+      <Name>XamarinFormsBug31415Sample.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>

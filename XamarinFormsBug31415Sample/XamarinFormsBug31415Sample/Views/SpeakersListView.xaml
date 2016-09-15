@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:ContentPageBase xmlns="http://xamarin.com/schemas/2014/forms" 
+		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+		x:TypeArguments="vms:SpeakersListViewModel" 
+		xmlns:rxui="clr-namespace:ReactiveUI.XamForms;assembly=ReactiveUI.XamForms" 
+		xmlns:ui="clr-namespace:XamarinFormsBug31415Sample.Views;assembly=XamarinFormsBug31415Sample" 
+		xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms" 
+		xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations" 
+		xmlns:vms="clr-namespace:XamarinFormsBug31415Sample.ViewModels;assembly=XamarinFormsBug31415Sample" 
+		x:Class="XamarinFormsBug31415Sample.Views.SpeakersListView">
+	<ContentPage.Content>
+		<StackLayout>
+			<SearchBar x:Name="SearchBar" HeightRequest="50">
+			</SearchBar>
+			<ListView x:Name="SpeakersList" IsPullToRefreshEnabled="true">
+				<ListView.ItemTemplate>
+					<DataTemplate>
+						<ViewCell>
+							<Grid Margin="2">
+								<Grid.RowDefinitions>
+									<RowDefinition Height="*" />
+								</Grid.RowDefinitions>
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="1*" />
+									<ColumnDefinition Width="5*" />
+								</Grid.ColumnDefinitions>
+								<ffimageloading:CachedImage HorizontalOptions="Center" DownsampleUseDipUnits="true" TransparencyEnabled="false" FadeAnimationEnabled="true" x:Name="ImageView" Source="{Binding ProfilePictureUrl}" Grid.Row="0" Grid.Column="0">
+									<ffimageloading:CachedImage.Transformations>
+										<fftransformations:CircleTransformation />
+									</ffimageloading:CachedImage.Transformations>
+								</ffimageloading:CachedImage>
+								<Label Text="{Binding Name}" Grid.Row="0" Grid.Column="1" VerticalOptions ="Center"/>
+							</Grid>
+						</ViewCell>
+					</DataTemplate>
+				</ListView.ItemTemplate>
+			</ListView>
+		</StackLayout>
+	</ContentPage.Content>
+</ui:ContentPageBase>
